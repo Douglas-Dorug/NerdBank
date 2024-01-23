@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Configurações de conexão com o banco de dados -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/alunos?useSSL=false&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">Ricleysonbd123</property>
+
+        <!-- Configuração para criar as tabelas automaticamente -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Mapeamento das classes de entidade -->
+        <mapping class="Projeto.Entidades.Cliente"/>
+        <mapping class="Projeto.Entidades.Conta"/>
+        <mapping class="Projeto.Entidades.Gerente"/>
+        <mapping class="Projeto.Entidades.Operacao"/>
+
+    </session-factory>
+</hibernate-configuration>
