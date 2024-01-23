@@ -12,9 +12,9 @@ public class Gerente extends Pessoa{
     @Column(nullable = false)
     private String codigoBanco;
 
-    public Gerente(String nome, String nomeSocial, LocalDate dataNascimento, String CPF, String email, boolean ativo, String endereco, String codigoBanco) {
+    public Gerente(String nome, String nomeSocial, LocalDate dataNascimento, String CPF, String email, boolean ativo, String endereco, String codigoBanco, String senha) {
 
-        super(nome, nomeSocial, dataNascimento, CPF, email, ativo, endereco);
+        super(nome, nomeSocial, dataNascimento, CPF, email, ativo, endereco,senha);
         this.codigoBanco = codigoBanco;
     }
     public Gerente(){}

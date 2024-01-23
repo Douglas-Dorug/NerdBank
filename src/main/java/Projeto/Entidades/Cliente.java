@@ -10,8 +10,8 @@ public class Cliente extends Pessoa{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCliente;
    
-    public Cliente(String nome, String nomeSocial, LocalDate dataNascimento, String CPF, String email, boolean ativo, String endereco) {
-        super(nome, nomeSocial, dataNascimento, CPF, email, ativo, endereco);
+    public Cliente(String nome, String nomeSocial, LocalDate dataNascimento, String CPF, String email, boolean ativo, String endereco, String senha) {
+        super(nome, nomeSocial, dataNascimento, CPF, email, ativo, endereco,senha);
         
     }
     public Cliente(){}
