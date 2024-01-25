@@ -1,9 +1,12 @@
 package Projeto.Entidades;
 
 import Projeto.Enums.TiposConta;
+import Projeto.Repositorio.OperacaoRepositorio;
+
 import java.time.LocalDate;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.util.Date;
 
 @Entity
@@ -62,19 +65,23 @@ public class Conta {
     public Conta(){
     }
 
+    @Transactional
     private void Saque(double valor){
-        if (this.saldo <= valor){
-            this.saldo -= valor;
-        }
-        else{
-            //Adicionar exceção aqui
-            System.out.println("erro");
+        try{
+            if (this.saldo <= valor){
+                this.saldo -= valor;
+            }
+        }catch (Exception exception){
+            throw exception;
         }
     }
 
+    @Transactional
     private void Deposito(double valor){
         try{
-            this.saldo += valor;
+            if(valor >= 0){
+                this.saldo += valor;
+            }
         } catch (Exception exception){
             throw exception;
         }
@@ -84,9 +91,16 @@ public class Conta {
         return this.getSaldo();
     }
 
-    public void RegistrarOperacao(){
-        //falta implementar
+    //vai ser usado quando chamar deposito ou saque
+    public Operacao RegistrarOperacao(String descricao, double valor){
+        Operacao operacao = new Operacao();
+        operacao.setConta(this);
+        operacao.setDescricao(descricao);
+        operacao.setValor(valor);
+
+        return operacao;
     }
+    @Transactional
     public void Transferencia(Conta ContaRecibo, double valor){
         this.Saque(valor);
         ContaRecibo.Deposito(valor);

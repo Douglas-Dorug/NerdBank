@@ -14,6 +14,14 @@ public class Operacao {
     private double valor;
     private String descricao;
 
+    public Operacao(){}
+
+    public Operacao(Conta conta, double valor, String descricao) {
+        this.conta = conta;
+        this.valor = valor;
+        this.descricao = descricao;
+    }
+
     public int getId() {
         return id;
     }

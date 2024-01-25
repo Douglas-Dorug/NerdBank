@@ -17,7 +17,9 @@ public class Cliente extends Pessoa{
     public Cliente(){}
 
     public void ModificaDados(String nomeSocial, String email, String endereco){
-        //Falta implementar
+        this.setNomeSocial(nomeSocial);
+        this.setEmail(email);
+        this.setEndereco(endereco);
     }
     public void AvaliaGerente(Gerente gerente, double nota){
         //Falta implementar
