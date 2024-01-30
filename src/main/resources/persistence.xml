@@ -8,8 +8,8 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://aws.connect.psdb.cloud/bancotestes_planetscale?sslMode=VERIFY_IDENTITY&amp;serverTimezone=UTC</property>
-        <property name="hibernate.connection.username">9lznz8qgnr2sfgw6tj5j</property>
-        <property name="hibernate.connection.password">pscale_pw_bdyr3k9iUARvib76Ga7tjnRya42Ay0lqZHkxjfAni9Z</property>
+        <property name="hibernate.connection.username">mqctx0wk0qgzvl2n1hpg</property>
+        <property name="hibernate.connection.password">pscale_pw_Q0aqDb73WTgbYLgjljhjcPRJrPG8yLnnK8tfyc1fH7C</property>
 
         <!-- Configuração para criar as tabelas automaticamente -->
         <property name="hibernate.hbm2ddl.auto">update</property>
@@ -23,3 +23,7 @@
     </session-factory>
 </hibernate-configuration>
 
+database: bancotestes_planetscale
+username: mqctx0wk0qgzvl2n1hpg
+host: aws.connect.psdb.cloud
+password: pscale_pw_Q0aqDb73WTgbYLgjljhjcPRJrPG8yLnnK8tfyc1fH7C

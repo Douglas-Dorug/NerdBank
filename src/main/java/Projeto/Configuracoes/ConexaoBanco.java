@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class ConexaoBanco {
     private static final String URL = "jdbc:mysql://aws.connect.psdb.cloud/bancotestes_planetscale";
-    private static final String USUARIO = "9lznz8qgnr2sfgw6tj5j";
-    private static final String SENHA = "pscale_pw_bdyr3k9iUARvib76Ga7tjnRya42Ay0lqZHkxjfAni9Z";
+    private static final String USUARIO = "mqctx0wk0qgzvl2n1hpg";
+    private static final String SENHA = "pscale_pw_Q0aqDb73WTgbYLgjljhjcPRJrPG8yLnnK8tfyc1fH7C";
 
     // Objeto de conexão
     private static Connection conexao;

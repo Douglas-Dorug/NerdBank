@@ -20,7 +20,7 @@ public class Main {
         
         
         //gerar tabelas
-        /*
+        
        SessionFactory sessionFactory = new Configuration().configure("persistence.xml").buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -29,7 +29,6 @@ public class Main {
 
         transaction.commit();
         session.close();
-         */
         
         
         
@@ -41,6 +40,7 @@ public class Main {
         
         
         
+        /*
          Configuration configuration = new Configuration().configure("persistence.xml");
         SessionFactory sessionFactory = configuration.buildSessionFactory();
 
@@ -62,6 +62,7 @@ public class Main {
         rep.salvarConta(teste);
         
         System.out.println(teste.consultaSaldo()+"R$");
+         */
          
     }
 }
