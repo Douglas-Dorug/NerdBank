@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexaoBanco {
-    private static final String URL = "jdbc:mariadb://localhost:3306/novoDB";
-    private static final String USUARIO = "root";
-    private static final String SENHA = "admin010203";
+    private static final String URL = "jdbc:mysql://aws.connect.psdb.cloud/bancotestes_planetscale";
+    private static final String USUARIO = "9lznz8qgnr2sfgw6tj5j";
+    private static final String SENHA = "pscale_pw_bdyr3k9iUARvib76Ga7tjnRya42Ay0lqZHkxjfAni9Z";
 
     // Objeto de conexão
     private static Connection conexao;
@@ -16,7 +16,7 @@ public class ConexaoBanco {
     public static Connection obterConexao() {
         try {
             // Carregar o driver JDBC
-            Class.forName("org.mariadb.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Estabelecer a conexão
             conexao = DriverManager.getConnection(URL, USUARIO, SENHA);

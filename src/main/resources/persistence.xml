@@ -7,9 +7,9 @@
         <!-- Configurações de conexão com o banco de dados -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/alunos?useSSL=false&amp;serverTimezone=UTC</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">Ricleysonbd123</property>
+        <property name="hibernate.connection.url">jdbc:mysql://aws.connect.psdb.cloud/bancotestes_planetscale?sslMode=VERIFY_IDENTITY&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">9lznz8qgnr2sfgw6tj5j</property>
+        <property name="hibernate.connection.password">pscale_pw_bdyr3k9iUARvib76Ga7tjnRya42Ay0lqZHkxjfAni9Z</property>
 
         <!-- Configuração para criar as tabelas automaticamente -->
         <property name="hibernate.hbm2ddl.auto">update</property>
@@ -22,3 +22,4 @@
 
     </session-factory>
 </hibernate-configuration>
+
