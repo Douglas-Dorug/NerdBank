@@ -17,7 +17,7 @@ abstract class Pessoa {
     private String nomeSocial;
     private LocalDate dataNascimento;
     @CPF
-    @Column(length = 11)
+    @Column(length = 11,unique = true)
     private String CPF;
     @Email
     private String email;

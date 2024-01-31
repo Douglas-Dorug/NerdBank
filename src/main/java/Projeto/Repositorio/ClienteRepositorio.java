@@ -34,6 +34,12 @@ public class ClienteRepositorio {
         return session.createQuery("FROM clientes", Cliente.class).list();
     }
 
+    public Cliente buscarClientePorCpf(String cpf) {
+        return session.createQuery("FROM Cliente WHERE cpf = :cpf", Cliente.class)
+                .setParameter("cpf", cpf)
+                .uniqueResult();
+    }
+
     public void atualizarCliente(Cliente cliente) {
         Transaction transaction = null;
         try {

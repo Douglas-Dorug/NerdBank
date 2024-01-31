@@ -32,7 +32,7 @@ public class ContaRepositorio {
         return session.get(Conta.class, id);
     }
 
-    public List<Conta> listarContas() {
+    public List<Conta> listarContas(Cliente cliente) {
         return session.createQuery("FROM contas", Conta.class).list();
     }
 
