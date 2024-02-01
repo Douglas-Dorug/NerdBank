@@ -31,7 +31,7 @@ public class ClienteRepositorio {
     }
 
     public List<Cliente> listarClientes() {
-        return session.createQuery("FROM clientes", Cliente.class).list();
+        return session.createQuery("FROM Cliente", Cliente.class).list();
     }
 
     public Cliente buscarClientePorCpf(String cpf) {

@@ -3,33 +3,26 @@ package Projeto.Front;
 import Projeto.Entidades.Cliente;
 import Projeto.Repositorio.ClienteRepositorio;
 import Projeto.Repositorio.ContaRepositorio;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class MinhasContas {
     private JFrame frame;
     private DefaultListModel<String> contasListModel;
     private JList<String> contasList;
 
-    Configuration configuration = new Configuration().configure("persistence.xml");
-    SessionFactory sessionFactory = configuration.buildSessionFactory();
-    // Criação da sessão do Hibernate
-    Session session = sessionFactory.openSession();
-    ContaRepositorio contaRepositorio = new ContaRepositorio(session);
-    ClienteRepositorio clienteRepositorio = new ClienteRepositorio(session);
-
-    public MinhasContas(Cliente cliente) {
+    public MinhasContas(Cliente cliente, ClienteRepositorio clienteRepositorio, ContaRepositorio contaRepositorio) {
         // Lista de contas
         contasListModel = new DefaultListModel<>();
-        contasListModel.addElement("Conta 1");
-        contasListModel.addElement("Conta 2");
-        contasListModel.addElement("Conta 3");
+        List<Projeto.Entidades.Conta> listadeContas = contaRepositorio.listarContaPorCliente(cliente.getId());
+
+        for(int i = 0; i < listadeContas.size(); i++) {
+            contasListModel.add(i, listadeContas.get(i).getNumAgenciaEConta() + " " + listadeContas.get(i).getTipoDaConta());
+        }
 
         // Configuracao do frame
         frame = new JFrame("Minhas Contas");
@@ -37,7 +30,6 @@ public class MinhasContas {
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
-        System.out.println(cliente.getNome());
         // Configuracao da lista de contas
         contasList = new JList<>(contasListModel);
         contasList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -49,11 +41,12 @@ public class MinhasContas {
             public void actionPerformed(ActionEvent e) {
 
                 int selectedIndex = contasList.getSelectedIndex();
+                Projeto.Entidades.Conta contaAcesso = listadeContas.get(selectedIndex);
                 if (selectedIndex != -1) {
                     String contaSelecionada = contasListModel.getElementAt(selectedIndex);
 
                         frame.dispose();
-                        new Conta().setVisible(true);
+                        new Conta(cliente,clienteRepositorio,contaAcesso,contaRepositorio).setVisible(true);
 
                 } else {
                     JOptionPane.showMessageDialog(frame, "Selecione uma conta antes de acessar.");
@@ -79,7 +72,7 @@ public class MinhasContas {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        new CriarConta().setVisible(true);
+                        new CriarConta(cliente,clienteRepositorio,contaRepositorio).setVisible(true);
                     }
                 });
             }

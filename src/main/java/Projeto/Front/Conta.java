@@ -1,5 +1,9 @@
 package Projeto.Front;
 
+import Projeto.Entidades.Cliente;
+import Projeto.Repositorio.ClienteRepositorio;
+import Projeto.Repositorio.ContaRepositorio;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,14 +12,15 @@ import java.awt.event.ActionListener;
 public class Conta extends JFrame {
 
     private double saldo;
-
+    private JLabel nomeClienteLabel;
+    private JLabel agenciaContaLabel;
     private JLabel saldoLabel;
     private JButton depositarButton;
     private JButton sacarButton;
     private JButton transferirButton;
     private JButton voltarButton;
 
-    public Conta() {
+    public Conta(Cliente cliente, ClienteRepositorio clienteRepositorio, Projeto.Entidades.Conta conta, ContaRepositorio contaRepositorio) {
         // Configurações básicas da janela
         setTitle("Conta");
         setSize(300, 200);
@@ -23,10 +28,11 @@ public class Conta extends JFrame {
         setLocationRelativeTo(null);
 
         // Inicializa o saldo
-        saldo = 1000.0; // Saldo inicial
-
+        saldo = conta.consultaSaldo();
         // Criação dos componentes
         saldoLabel = new JLabel("Saldo: R$ " + saldo);
+        nomeClienteLabel = new JLabel("Cliente: " + cliente.getNome());
+        agenciaContaLabel = new JLabel("Agência e Conta: " + conta.getNumAgenciaEConta());
         depositarButton = new JButton("Depositar");
         sacarButton = new JButton("Sacar");
         transferirButton = new JButton("Transferir");
@@ -41,12 +47,9 @@ public class Conta extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        new TelaDepositoSaque().setVisible(true);
+                        new TelaDepositoSaque(cliente, clienteRepositorio,conta,contaRepositorio).setVisible(true);
                     }
-
                 });
-
-                // (Você pode implementar a lógica de depósito aqui)
             }
         });
 
@@ -58,11 +61,9 @@ public class Conta extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        new TelaDepositoSaque().setVisible(true);
+                        new TelaDepositoSaque(cliente, clienteRepositorio,conta,contaRepositorio).setVisible(true);
                     }
                 });
-
-                // (Você pode implementar a lógica de saque aqui)
             }
         });
 
@@ -74,11 +75,9 @@ public class Conta extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        new TelaTransferencia().setVisible(true);
+                        new TelaTransferencia(cliente, clienteRepositorio,conta,contaRepositorio).setVisible(true);
                     }
                 });
-
-                // (Você pode implementar a lógica de transferência aqui)
             }
         });
 
@@ -90,7 +89,7 @@ public class Conta extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        new MinhasContas().show();
+                        new MinhasContas(cliente, clienteRepositorio,contaRepositorio).show();
                     }
                 });
             }
@@ -98,7 +97,16 @@ public class Conta extends JFrame {
 
         // Config do layout da janela
         setLayout(new BorderLayout());
-        add(saldoLabel, BorderLayout.NORTH);
+
+        // Configuração do painel superior
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new GridLayout(3, 1));
+
+        topPanel.add(nomeClienteLabel);
+        topPanel.add(agenciaContaLabel);
+        topPanel.add(saldoLabel);
+
+        add(topPanel, BorderLayout.NORTH);
 
         // Configuração do painel de botões
         JPanel buttonPanel = new JPanel();

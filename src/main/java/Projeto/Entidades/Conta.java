@@ -66,21 +66,25 @@ public class Conta {
     }
 
     @Transactional
-    private void Saque(double valor){
+    public void Saque(double valor){
         try{
-            if (this.saldo <= valor){
+            if (this.saldo >= valor){
                 this.saldo -= valor;
-            }
+            }else {
+                throw new RuntimeException();
+                }
         }catch (Exception exception){
             throw exception;
         }
     }
 
     @Transactional
-    private void Deposito(double valor){
+    public void Deposito(double valor){
         try{
             if(valor >= 0){
                 this.saldo += valor;
+            }else {
+                throw new RuntimeException();
             }
         } catch (Exception exception){
             throw exception;
@@ -91,15 +95,6 @@ public class Conta {
         return this.getSaldo();
     }
 
-    //vai ser usado quando chamar deposito ou saque
-    public Operacao RegistrarOperacao(String descricao, double valor){
-        Operacao operacao = new Operacao();
-        operacao.setConta(this);
-        operacao.setDescricao(descricao);
-        operacao.setValor(valor);
-
-        return operacao;
-    }
     @Transactional
     public void Transferencia(Conta ContaRecibo, double valor){
         this.Saque(valor);

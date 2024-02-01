@@ -1,17 +1,31 @@
 package Projeto.Front;
 
+import Projeto.Entidades.Cliente;
+import Projeto.Entidades.Operacao;
+import Projeto.Repositorio.ClienteRepositorio;
+import Projeto.Repositorio.ContaRepositorio;
+import Projeto.Repositorio.OperacaoRepositorio;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import javax.swing.*;
+import javax.transaction.Transactional;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TelaTransferencia extends JFrame {
 
-    private JTextField campoAgenciaDestino;
     private JTextField campoContaDestino;
     private JTextField campoValorTransferencia;
+    Configuration configuration = new Configuration().configure("persistence.xml");
+    SessionFactory sessionFactory = configuration.buildSessionFactory();
+    // Criação da sessão do Hibernate
+    Session session = sessionFactory.openSession();
+    OperacaoRepositorio operacaoRepositorio = new OperacaoRepositorio(session);
 
-    public TelaTransferencia() {
+    public TelaTransferencia(Cliente cliente, ClienteRepositorio clienteRepositorio, Projeto.Entidades.Conta conta, ContaRepositorio contaRepositorio) {
         // Config da janela
         setTitle("Tela de Transferência");
         setSize(400, 200);
@@ -23,8 +37,6 @@ public class TelaTransferencia extends JFrame {
         setLayout(new GridLayout(4, 2));
 
         // Componentes
-        JLabel labelAgenciaDestino = new JLabel("Agência do Destinatário:");
-        campoAgenciaDestino = new JTextField();
 
         JLabel labelContaDestino = new JLabel("Conta do Destinatário:");
         campoContaDestino = new JTextField();
@@ -36,8 +48,6 @@ public class TelaTransferencia extends JFrame {
         JButton botaoVoltar = new JButton("Voltar");
 
         //componentes da janela
-        add(labelAgenciaDestino);
-        add(campoAgenciaDestino);
         add(labelContaDestino);
         add(campoContaDestino);
         add(labelValorTransferencia);
@@ -49,7 +59,7 @@ public class TelaTransferencia extends JFrame {
         botaoTransferir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                realizarTransferencia();
+                realizarTransferencia(cliente, clienteRepositorio,conta,contaRepositorio);
             }
         });
 
@@ -58,36 +68,50 @@ public class TelaTransferencia extends JFrame {
             @Override
 
             public void actionPerformed(ActionEvent e) {
-                voltarParaTelaAnterior();
+                voltarParaTelaAnterior(cliente, clienteRepositorio,conta,contaRepositorio);
             }
         });
     }
-
-    private void realizarTransferencia() {
+    @Transactional
+    private void realizarTransferencia(Cliente cliente, ClienteRepositorio clienteRepositorio, Projeto.Entidades.Conta conta, ContaRepositorio contaRepositorio) {
         // Lógica para realizar a transferência
-        String agenciaDestino = campoAgenciaDestino.getText();
         String contaDestino = campoContaDestino.getText();
 
         try {
             double valorTransferencia = Double.parseDouble(campoValorTransferencia.getText());
-
+            Projeto.Entidades.Conta contaDestinoDB = contaRepositorio.buscarContaPorNumero(contaDestino);
             // lógica de transferência
 
-            // mensagem
-            JOptionPane.showMessageDialog(this, "Transferência de R$ " + valorTransferencia + " realizada com sucesso!");
+            if (valorTransferencia <= conta.consultaSaldo() && valorTransferencia > 0 && contaDestinoDB != null){
+                conta.Saque(valorTransferencia);
+                Operacao operacaoSaque = new Operacao(conta,-(valorTransferencia),"Transferencia enviada");
+
+                contaDestinoDB.Deposito(valorTransferencia);
+                Operacao operacaoDeposito = new Operacao(contaDestinoDB,valorTransferencia,"Transferencia recebida");
+
+                operacaoRepositorio.salvarOperacao(operacaoSaque);
+                operacaoRepositorio.salvarOperacao(operacaoDeposito);
+
+                contaRepositorio.atualizarConta(conta);
+                contaRepositorio.atualizarConta(contaDestinoDB);
+
+                JOptionPane.showMessageDialog(this, "Transferencia de R$ " + valorTransferencia + " realizado com sucesso!");
+            }else {
+                JOptionPane.showMessageDialog(this, "Por favor,confira os dados ou insira um valor válido para a transferência.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Por favor, insira um valor válido para a transferência.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    private void voltarParaTelaAnterior() {
+    private void voltarParaTelaAnterior(Cliente cliente, ClienteRepositorio clienteRepositorio, Projeto.Entidades.Conta conta, ContaRepositorio contaRepositorio) {
 
         //para voltar para a tela anterior
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Conta().show();
+                new Conta(cliente, clienteRepositorio,conta,contaRepositorio).show();
             }
         });
         //fechar a janela

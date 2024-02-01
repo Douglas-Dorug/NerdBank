@@ -20,7 +20,7 @@ public class TelaLogin extends JFrame {
     SessionFactory sessionFactory = configuration.buildSessionFactory();
     // Criação da sessão do Hibernate
     Session session = sessionFactory.openSession();
-    ContaRepositorio rep = new ContaRepositorio(session);
+    ContaRepositorio contaRepositorio = new ContaRepositorio(session);
     ClienteRepositorio clienteRepositorio = new ClienteRepositorio(session);
 
     public TelaLogin() {
@@ -99,7 +99,7 @@ public class TelaLogin extends JFrame {
                     SwingUtilities.invokeLater(new Runnable() {
                         @Override
                         public void run() {
-                            new MinhasContas(cliente).show();
+                            new MinhasContas(cliente,clienteRepositorio, contaRepositorio).show();
                         }
                     });
                 }

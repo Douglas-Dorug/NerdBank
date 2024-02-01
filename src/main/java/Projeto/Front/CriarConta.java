@@ -1,5 +1,11 @@
 package Projeto.Front;
 
+import Projeto.Entidades.Cliente;
+import Projeto.Entidades.Conta;
+import Projeto.Enums.TiposConta;
+import Projeto.Repositorio.ClienteRepositorio;
+import Projeto.Repositorio.ContaRepositorio;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,10 +13,10 @@ import java.awt.event.ActionListener;
 
 public class CriarConta extends JFrame {
 
-    private JComboBox<String> tipoContaComboBox;
+    private JComboBox<TiposConta> tipoContaComboBox;
     private JTextField senhaField;
 
-    public CriarConta() {
+    public CriarConta(Cliente cliente, ClienteRepositorio clienteRepositorio, ContaRepositorio contaRepositorio) {
         // Configda janela
         setTitle("Criar Conta");
         setSize(300, 200);
@@ -22,7 +28,7 @@ public class CriarConta extends JFrame {
 
         // Componentes
         JLabel tipoContaLabel = new JLabel("Tipo de Conta:");
-        String[] tiposConta = {"Poupança", "Corrente"};
+        TiposConta[] tiposConta = {TiposConta.CONTACORRENTE,TiposConta.CONTAPOUPANCA};
         tipoContaComboBox = new JComboBox<>(tiposConta);
 
         JLabel senhaLabel = new JLabel("Senha:");
@@ -32,8 +38,9 @@ public class CriarConta extends JFrame {
         criarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                criarConta();
+                criarConta(cliente,clienteRepositorio,contaRepositorio);
                 JOptionPane.showMessageDialog(CriarConta.this, "Conta criada com sucesso!");
+                voltarParaTelaAnterior(cliente,clienteRepositorio,contaRepositorio);
             }
         });
 
@@ -41,7 +48,7 @@ public class CriarConta extends JFrame {
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                voltarParaTelaAnterior();
+                voltarParaTelaAnterior(cliente,clienteRepositorio,contaRepositorio);
             }
         });
 
@@ -55,25 +62,24 @@ public class CriarConta extends JFrame {
         add(voltarButton);
     }
 
-    private void criarConta() {
-        String tipoConta = (String) tipoContaComboBox.getSelectedItem();
+    private void criarConta(Cliente cliente, ClienteRepositorio clienteRepositorio, ContaRepositorio contaRepositorio) {
+        TiposConta tipoConta = (TiposConta) tipoContaComboBox.getSelectedItem();
         String senha = senhaField.getText();
-
+        int totalContasCliente = contaRepositorio.totalContasCliente(cliente.getId());
+        Conta conta = new Conta(cliente,senha,totalContasCliente,tipoConta);
         //lógica para criar a conta com os dados inseridos
-        // Exemplo de impressão para verificar os valores
-        System.out.println("Tipo de Conta: " + tipoConta);
-        System.out.println("Senha: " + senha);
+        contaRepositorio.salvarConta(conta);
     }
 
 
-    private void voltarParaTelaAnterior() {
+    private void voltarParaTelaAnterior(Cliente cliente, ClienteRepositorio clienteRepositorio, ContaRepositorio contaRepositorio) {
 
         //para voltar para a tela anterior
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new MinhasContas().show();
+                new MinhasContas(cliente,clienteRepositorio,contaRepositorio).show();
             }
         });
         //fechar a janela

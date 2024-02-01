@@ -4,26 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3502ecb-cb45-4820-ab38-5cf1cfeb6e1d" name="Changes" comment="Adicionadas telas com login e cadastro cliente ok">
-      <change afterPath="$PROJECT_DIR$/Telas/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Telas/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Telas/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Telas/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/Conta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/CriarConta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/MinhasContas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaCadastro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaDepositoSaque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaTransferencia.java" afterDir="false" />
+    <list default="true" id="c3502ecb-cb45-4820-ab38-5cf1cfeb6e1d" name="Changes" comment="Adicionadas telas com login ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Entidades/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Entidades/Pessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Entidades/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Entidades/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/CriarConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/CriarConta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/MinhasContas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/MinhasContas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaDepositoSaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaDepositoSaque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaTransferencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaTransferencia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/ClienteRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/ClienteRepositorio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/ContaRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/ContaRepositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/OperacaoRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/OperacaoRepositorio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +31,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -66,23 +63,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ConexaoBanco.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Projeto.Front.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TelaCadastro.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Douglas/Documents/LC/prog-2/NerdBank&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ConexaoBanco.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Projeto.Front.Main.executor": "Run",
+    "Application.TelaCadastro.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Implementacao-Telas",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Douglas/Documents/LC/prog-2/NerdBank",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/Projeto" />
@@ -178,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704403189030</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adicionadas telas com login ok">
+      <option name="closed" value="true" />
+      <created>1706740718124</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706740718124</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -190,7 +195,8 @@
     <MESSAGE value="Configurações básicas do hibernate criadas" />
     <MESSAGE value="CRUD para Gerente e Cliente desenvolvido" />
     <MESSAGE value="Adicionadas telas com login e cadastro cliente ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionadas telas com login e cadastro cliente ok" />
+    <MESSAGE value="Adicionadas telas com login ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionadas telas com login ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -199,6 +205,26 @@
           <properties class="org.hibernate.MappingException" package="org.hibernate" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Projeto/Entidades/Conta.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Projeto/Front/TelaDepositoSaque.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Projeto/Repositorio/ContaRepositorio.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Projeto/Front/TelaTransferencia.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

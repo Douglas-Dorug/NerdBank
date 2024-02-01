@@ -33,6 +33,6 @@ public class OperacaoRepositorio {
     }
 
     public List<Operacao> listarOperacoes() {
-        return session.createQuery("FROM operacoes", Operacao.class).list();
+        return session.createQuery("FROM Operacao", Operacao.class).list();
     }
 }

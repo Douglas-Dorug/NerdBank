@@ -32,19 +32,25 @@ public class ContaRepositorio {
         return session.get(Conta.class, id);
     }
 
-    public List<Conta> listarContas(Cliente cliente) {
-        return session.createQuery("FROM contas", Conta.class).list();
+    public Conta buscarContaPorNumero(String numero){
+        return session.createQuery("FROM Conta WHERE numAgenciaEConta = :numAgenciaEConta", Conta.class)
+                .setParameter("numAgenciaEConta", numero)
+                .uniqueResult();
     }
 
-    public List<Conta> listarContaPorCliente(Long clienteId){
-        return session.createQuery("FROM contas WHERE cliente.id = :clienteId", Conta.class)
+    public List<Conta> listarContas(Cliente cliente) {
+        return session.createQuery("FROM Conta", Conta.class).list();
+    }
+
+    public List<Conta> listarContaPorCliente(int clienteId){
+        return session.createQuery("FROM Conta WHERE cliente.id = :clienteId", Conta.class)
                 .setParameter("clienteId", clienteId)
                 .list();
     }
 
     //Função para usar na criação de contas
-    public int totalContasCliente(Long clienteId){
-        List<Conta> totalContas= session.createQuery("FROM contas WHERE cliente.id = :clienteId", Conta.class)
+    public int totalContasCliente(int clienteId){
+        List<Conta> totalContas= session.createQuery("FROM Conta WHERE cliente.id = :clienteId", Conta.class)
                 .setParameter("clienteId", clienteId)
                 .list();
 
