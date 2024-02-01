@@ -11,14 +11,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class TelaCadastro extends JFrame {
 
     private JTextField campoNome;
     private JTextField campoNomeSocial;
     private JTextField campoCPF;
-    private JTextField campoDataNascimento;
+    private JFormattedTextField campoDataNascimento;
     private JPasswordField campoSenha;
     private JTextField campoEmail;
     private JTextField campoEndereco;
@@ -51,7 +54,7 @@ public class TelaCadastro extends JFrame {
         campoCPF = new JTextField();
 
         JLabel labelDataNascimento = new JLabel("Data de Nascimento:");
-        campoDataNascimento = new JTextField();
+        campoDataNascimento = new JFormattedTextField(new SimpleDateFormat("dd/MM/yyyy")); // Definindo o formato da data
 
         JLabel labelSenha = new JLabel("Senha:");
         campoSenha = new JPasswordField();
@@ -105,7 +108,13 @@ public class TelaCadastro extends JFrame {
         String nome = campoNome.getText();
         String nomeSocial = campoNomeSocial.getText();
         String cpf = campoCPF.getText();
-        LocalDate dataNascimento = LocalDate.now();
+        LocalDate dataNascimento = null;
+        try {
+            dataNascimento = LocalDate.parse(campoDataNascimento.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        } catch (DateTimeParseException e) {
+            JOptionPane.showMessageDialog(this, "Formato de data inválido. Use o formato dd/MM/yyyy.");
+            return;
+        }
         String senha = new String(campoSenha.getPassword());
         String email = campoEmail.getText();
         String endereco = campoEndereco.getText();
