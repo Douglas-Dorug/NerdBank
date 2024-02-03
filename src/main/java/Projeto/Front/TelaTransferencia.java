@@ -96,6 +96,7 @@ public class TelaTransferencia extends JFrame {
                 contaRepositorio.atualizarConta(contaDestinoDB);
 
                 JOptionPane.showMessageDialog(this, "Transferencia de R$ " + valorTransferencia + " realizado com sucesso!");
+                voltarParaTelaAnterior(cliente, clienteRepositorio,conta,contaRepositorio);
             }else {
                 JOptionPane.showMessageDialog(this, "Por favor,confira os dados ou insira um valor válido para a transferência.", "Erro", JOptionPane.ERROR_MESSAGE);
             }

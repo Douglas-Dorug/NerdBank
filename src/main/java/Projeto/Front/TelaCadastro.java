@@ -8,9 +8,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import javax.swing.*;
+import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -54,7 +56,12 @@ public class TelaCadastro extends JFrame {
         campoCPF = new JTextField();
 
         JLabel labelDataNascimento = new JLabel("Data de Nascimento:");
-        campoDataNascimento = new JFormattedTextField(new SimpleDateFormat("dd/MM/yyyy")); // Definindo o formato da data
+        try {
+            MaskFormatter mask = new MaskFormatter("##/##/####");
+            campoDataNascimento = new JFormattedTextField(mask);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         JLabel labelSenha = new JLabel("Senha:");
         campoSenha = new JPasswordField();

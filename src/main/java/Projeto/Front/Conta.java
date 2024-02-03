@@ -15,6 +15,7 @@ public class Conta extends JFrame {
     private JLabel nomeClienteLabel;
     private JLabel agenciaContaLabel;
     private JLabel saldoLabel;
+    private JButton operacoesButton;
     private JButton depositarButton;
     private JButton sacarButton;
     private JButton transferirButton;
@@ -23,7 +24,7 @@ public class Conta extends JFrame {
     public Conta(Cliente cliente, ClienteRepositorio clienteRepositorio, Projeto.Entidades.Conta conta, ContaRepositorio contaRepositorio) {
         // Configurações básicas da janela
         setTitle("Conta");
-        setSize(300, 200);
+        setSize(350, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -33,12 +34,27 @@ public class Conta extends JFrame {
         saldoLabel = new JLabel("Saldo: R$ " + saldo);
         nomeClienteLabel = new JLabel("Cliente: " + cliente.getNome());
         agenciaContaLabel = new JLabel("Agência e Conta: " + conta.getNumAgenciaEConta());
+        operacoesButton = new JButton("Operações");
         depositarButton = new JButton("Depositar");
         sacarButton = new JButton("Sacar");
         transferirButton = new JButton("Transferir");
         voltarButton = new JButton("Voltar");
 
         // Adiciona os listeners aos botões
+        operacoesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                //logica para Operacoes
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        new TelaListagemOperacoesConta(cliente, clienteRepositorio,conta,contaRepositorio).setVisible(true);
+                    }
+                });
+            }
+        });
+
         depositarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -47,7 +63,7 @@ public class Conta extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        new TelaDepositoSaque(cliente, clienteRepositorio,conta,contaRepositorio).setVisible(true);
+                        new TelaDeposito(cliente, clienteRepositorio,conta,contaRepositorio).setVisible(true);
                     }
                 });
             }
@@ -61,7 +77,7 @@ public class Conta extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        new TelaDepositoSaque(cliente, clienteRepositorio,conta,contaRepositorio).setVisible(true);
+                        new TelaSaque(cliente, clienteRepositorio,conta,contaRepositorio).setVisible(true);
                     }
                 });
             }
@@ -114,6 +130,7 @@ public class Conta extends JFrame {
 
         //botões ao painel
         buttonPanel.add(Box.createVerticalGlue()); // Espaço no topo
+        buttonPanel.add(createButton(operacoesButton, 150,30));
         buttonPanel.add(createButton(depositarButton, 150, 30));
         buttonPanel.add(createButton(sacarButton, 150, 30));
         buttonPanel.add(createButton(transferirButton, 150, 30));

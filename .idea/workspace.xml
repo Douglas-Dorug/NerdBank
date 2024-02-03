@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3502ecb-cb45-4820-ab38-5cf1cfeb6e1d" name="Changes" comment="Adicionadas telas com login ok">
+    <list default="true" id="c3502ecb-cb45-4820-ab38-5cf1cfeb6e1d" name="Changes" comment="Teste Cadastro">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaDeposito.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaListagemOperacoesConta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaSaque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Entidades/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Entidades/Conta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Entidades/Operacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Entidades/Operacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/Conta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/CriarConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/CriarConta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/MinhasContas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/MinhasContas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaDepositoSaque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaDepositoSaque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaCadastro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaDepositoSaque.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaTransferencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Front/TelaTransferencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/ClienteRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/ClienteRepositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/ContaRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/ContaRepositorio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/OperacaoRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projeto/Repositorio/OperacaoRepositorio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +183,23 @@
       <option name="project" value="LOCAL" />
       <updated>1706740718124</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="finalização de conexão Back-front">
+      <option name="closed" value="true" />
+      <created>1706750760580</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706750760580</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Teste Cadastro">
+      <option name="closed" value="true" />
+      <created>1706826760252</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706826760252</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -196,7 +212,9 @@
     <MESSAGE value="CRUD para Gerente e Cliente desenvolvido" />
     <MESSAGE value="Adicionadas telas com login e cadastro cliente ok" />
     <MESSAGE value="Adicionadas telas com login ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionadas telas com login ok" />
+    <MESSAGE value="finalização de conexão Back-front" />
+    <MESSAGE value="Teste Cadastro" />
+    <option name="LAST_COMMIT_MESSAGE" value="Teste Cadastro" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -211,11 +229,6 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Projeto/Front/TelaDepositoSaque.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Projeto/Repositorio/ContaRepositorio.java</url>
           <line>35</line>
           <option name="timeStamp" value="7" />
@@ -224,6 +237,25 @@
           <url>file://$PROJECT_DIR$/src/main/java/Projeto/Front/TelaTransferencia.java</url>
           <line>85</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Projeto/Repositorio/OperacaoRepositorio.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Projeto/Front/TelaListagemOperacoesConta.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Projeto/Repositorio/OperacaoRepositorio.java</url>
+          <line>39</line>
+          <properties class="Projeto.Repositorio.OperacaoRepositorio" method="listarOperacoesPorConta">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

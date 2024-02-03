@@ -1,5 +1,6 @@
 package Projeto.Repositorio;
 
+import Projeto.Entidades.Conta;
 import Projeto.Entidades.Operacao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -34,5 +35,11 @@ public class OperacaoRepositorio {
 
     public List<Operacao> listarOperacoes() {
         return session.createQuery("FROM Operacao", Operacao.class).list();
+    }
+
+    public List<Operacao> listarOperacoesPorConta(int contaId){
+        return session.createQuery("FROM Operacao WHERE conta.id = :contaId", Operacao.class)
+                .setParameter("contaId", contaId)
+                .list();
     }
 }

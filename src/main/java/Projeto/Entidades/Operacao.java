@@ -1,6 +1,7 @@
 package Projeto.Entidades;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name ="operacoes")
@@ -12,6 +13,7 @@ public class Operacao {
     @JoinColumn(name = "fk_conta_id")
     private Conta conta;
     private double valor;
+    private LocalDate dataDaTransacao;
     private String descricao;
 
     public Operacao(){}
@@ -19,6 +21,7 @@ public class Operacao {
     public Operacao(Conta conta, double valor, String descricao) {
         this.conta = conta;
         this.valor = valor;
+        this.dataDaTransacao = LocalDate.now();
         this.descricao = descricao;
     }
 
@@ -52,5 +55,13 @@ public class Operacao {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public LocalDate getDataDaTransacao() {
+        return dataDaTransacao;
+    }
+
+    public void setDataDaTransacao(LocalDate dataDaTransacao) {
+        this.dataDaTransacao = dataDaTransacao;
     }
 }

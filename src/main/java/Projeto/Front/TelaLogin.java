@@ -106,9 +106,10 @@ public class TelaLogin extends JFrame {
                 else {
                     JOptionPane.showMessageDialog(this, "Usuário não cadastrado ou credenciais incorretas, confira os dados e tente novamente.");
                 }
+            }else {
+                JOptionPane.showMessageDialog(this, "Usuário não cadastrado ou credenciais incorretas, confira os dados e tente novamente.");
             }
         } catch (Exception e){
-            System.out.println(e);
             JOptionPane.showMessageDialog(this, "Usuário não cadastrado ou credenciais incorretas, confira os dados e tente novamente.");
         }
 
