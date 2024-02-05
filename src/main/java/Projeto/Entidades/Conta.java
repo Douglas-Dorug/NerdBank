@@ -50,7 +50,7 @@ public class Conta {
         //Numero da agencia e conta é geerado com numero id cliente e numero da conta
         this.numAgenciaEConta = String.valueOf(cliente.getId() + "0" + (totalContas + 1));
         this.situacaoConta = true;
-        if(tipoDaConta.equals("CONTAPOUPANCA")){
+        if(tipoDaConta.equals(TiposConta.CONTAPOUPANCA)){
             this.tipoDaConta = tipoDaConta;
             this.valorRendimento = 0.1;
             this.descricaoCotna = "Poupança";
